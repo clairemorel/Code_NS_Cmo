@@ -30,7 +30,7 @@ int main(int argc, char** argv)
 	MPI_Comm_rank(PETSC_COMM_WORLD,&rank);
 
 	/*------ Building of the grid ------*/
-	double xBegin=-10.0, yBegin=-10.0, lengthDomain=20.0;
+	double xBegin=-10.0, yBegin=-10.0, lengthDomain=20;
 	//int nbRefine=6;
 	//PabloUniform gridCart(xBegin,yBegin,0.0,lengthDomain);
 

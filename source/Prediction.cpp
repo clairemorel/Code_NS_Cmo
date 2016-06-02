@@ -76,7 +76,6 @@ void Prediction::ComputeRHS(PabloUniform& grid, double& dt, int& Re, Vec& RHS, v
 		Position[1] = positionY[i];
 
 		OctPrevious = grid.getPointOwner(Position);
-		centerX = grid.getCenter(OctPrevious)[0];	centerY = grid.getCenter(OctPrevious)[1];
 
 		if (OctPrevious == NULL){
 			rankPrevious = grid.getPointOwnerRank(Position);
@@ -88,6 +87,7 @@ void Prediction::ComputeRHS(PabloUniform& grid, double& dt, int& Re, Vec& RHS, v
 			}
 		}
 		else {
+			centerX = grid.getCenter(OctPrevious)[0];	centerY = grid.getCenter(OctPrevious)[1];
 			node0 = grid.getNode(OctPrevious, 0);	double deltaNode0 = sqrt(pow(centerX-node0[0],2) + pow(centerY-node0[1],2));
 			node1 = grid.getNode(OctPrevious, 1);	double deltaNode1 = sqrt(pow(centerX-node1[0],2) + pow(centerY-node1[1],2));
 			node2 = grid.getNode(OctPrevious, 2);	double deltaNode2 = sqrt(pow(centerX-node2[0],2) + pow(centerY-node2[1],2));
@@ -133,6 +133,7 @@ void Prediction::ComputeRHS(PabloUniform& grid, double& dt, int& Re, Vec& RHS, v
 				}
 				if (neigh_n.size()==0) NeighInterp=1;
 			}
+
 		}
 
 		vect[i] += 0;

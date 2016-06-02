@@ -31,7 +31,7 @@ int main(int argc, char** argv)
 
 	/*------ Building of the grid ------*/
 	double xBegin=-10.0, yBegin=-10.0, lengthDomain=20.0;
-	int nbRefine=5;
+	int nbRefine=4;
 	PabloUniform grid(xBegin,yBegin,0.0,lengthDomain);
 	for (int i = 0; i < nbRefine; ++i){
 		grid.adaptGlobalRefine();
@@ -43,7 +43,7 @@ int main(int argc, char** argv)
 		if (sqrt(pow(grid.getCenter(i)[0],2)+pow(grid.getCenter(i)[1],2))<5 && sqrt(pow(grid.getCenter(i)[0],2)+pow(grid.getCenter(i)[1],2))>2) {
 			grid.setMarker(i,2);
 		}
-		if (sqrt(pow(grid.getCenter(i)[0],2)+pow(grid.getCenter(i)[1],2))<10 && sqrt(pow(grid.getCenter(i)[0],2)+pow(grid.getCenter(i)[1],2))>=5) grid.setMarker(i,1);
+		if (sqrt(pow(grid.getCenter(i)[0],2)+pow(grid.getCenter(i)[1],2))<8 && sqrt(pow(grid.getCenter(i)[0],2)+pow(grid.getCenter(i)[1],2))>=5) grid.setMarker(i,1);
 	}
 	grid.adapt();
 
@@ -86,6 +86,8 @@ int main(int argc, char** argv)
 	double dt=1.0, temps=dt;
 
 	Velocity=prediction.ComputeVirtualVelocity(grid, dt, temps, Re, kspU, kspV, MatrixU, MatrixV, U, V, UVirtual, VVirtual);
+	grid.writeTest("U", Velocity[0]);
+	grid.writeTest("V", Velocity[1]);
 	
 	cout<<" Test 2 "<<'\n';
 
