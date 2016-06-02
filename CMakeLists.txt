@@ -9,7 +9,7 @@ project("Code_parallele")
 # Variables visible to the user
 #------------------------------------------------------------------------------------#
 
-set(BITPIT_DIR "/home/cmo/Documents/bitpit-private/lib/cmake/bitpit-1.2" CACHE PATH "The directory containig the bitpit library")
+set(BITPIT_DIR "/home/cmorel/bitpit-private/lib/cmake/bitpit-1.2" CACHE PATH "The directory containig the bitpit library")
 
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake-modules")
 set(LIBRARY_OUTPUT_PATH lib/${CMAKE_BUILD_TYPE})
